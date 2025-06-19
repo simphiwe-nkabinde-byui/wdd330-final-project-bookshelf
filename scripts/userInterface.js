@@ -1,10 +1,6 @@
 import { fetchBookById } from "./bookServices.js";
 import { getBooksByCategory } from "./dataManagement.js";
-import {
-  getLanguageName,
-  loadTemplate,
-  shortenWithEllipsis,
-} from "./utilities.js";
+import { getLanguageName, shortenWithEllipsis } from "./utilities.js";
 
 export function renderCategoryShelf(categoryName, selector) {
   const books = getBooksByCategory(categoryName);
@@ -67,8 +63,16 @@ export function renderSearchResults(results, selector) {
 }
 
 export async function loadHeaderFooter() {
-  const headerTemplate = await loadTemplate("/partials/header.html");
-  const footerTemplate = await loadTemplate("/partials/footer.html");
+  const headerTemplate = `
+    <a href="index.html" class="header-brand">
+      <img src="images/logo-light.png" alt="Bookshelf logo" />
+      Bookshelf
+    </a>
+    <a class="profile-link" href="profile.html">
+    <img src="images/user.png" alt="" />
+    </a>
+  `;
+  const footerTemplate = `&copy; 2025 Bookshelf`;
 
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
