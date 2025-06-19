@@ -22,4 +22,3 @@ async function displayBookDetails(bookId) {
   const bookDetails = await fetchBookById(bookId);
   renderBookDetails(bookDetails, "#book-details-container");
 }
-//
