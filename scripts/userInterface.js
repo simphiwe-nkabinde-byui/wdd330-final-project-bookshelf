@@ -1,6 +1,10 @@
 import { fetchBookById } from "./bookServices.js";
 import { getBooksByCategory } from "./dataManagement.js";
-import { getLanguageName, shortenWithEllipsis } from "./utilities.js";
+import {
+  getLanguageName,
+  loadTemplate,
+  shortenWithEllipsis,
+} from "./utilities.js";
 
 export function renderCategoryShelf(categoryName, selector) {
   const books = getBooksByCategory(categoryName);
@@ -19,7 +23,7 @@ export function renderCategoryShelf(categoryName, selector) {
     const bookData = await fetchBookById(book.id);
     let article = document.createElement("article");
     article.addEventListener("click", () => {
-      window.location.href = `/book-details.html?bookId=${book.id}`;
+      window.location.href = `book-details.html?bookId=${book.id}`;
     });
     article.className = "category-book";
     article.innerHTML = `
@@ -41,7 +45,7 @@ export function renderSearchResults(results, selector) {
   results.forEach((book) => {
     const link = document.createElement("a");
     link.className = "result-book-card";
-    link.href = `/book-details.html?bookId=${book.id}`;
+    link.href = `book-details.html?bookId=${book.id}`;
     link.innerHTML = `
         <img class="book-cover" width="128" height="195" src=${
           book.imageLinks?.thumbnail
@@ -63,16 +67,8 @@ export function renderSearchResults(results, selector) {
 }
 
 export async function loadHeaderFooter() {
-  const headerTemplate = `
-    <a href="index.html" class="header-brand">
-      <img src="images/logo-light.png" alt="Bookshelf logo" />
-      Bookshelf
-    </a>
-    <a class="profile-link" href="profile.html">
-    <img src="images/user.png" alt="" />
-    </a>
-  `;
-  const footerTemplate = `&copy; 2025 Bookshelf`;
+  const headerTemplate = await loadTemplate("partials/header.html");
+  const footerTemplate = await loadTemplate("partials/footer.html");
 
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
