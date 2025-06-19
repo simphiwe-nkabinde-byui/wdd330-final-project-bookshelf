@@ -16,7 +16,6 @@ export function saveBook(category, bookId) {
   }
   const savedBooks = getLocalStorage("saved-books") || [];
   const index = savedBooks.findIndex((book) => book.id == bookId);
-  console.log(index);
 
   if (index == -1) {
     savedBooks.push({ id: bookId, notes: "", category: category });

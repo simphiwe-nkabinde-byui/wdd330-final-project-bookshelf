@@ -40,7 +40,12 @@ export function renderCategoryShelf(categoryName, selector) {
 
 export function renderSearchResults(results, selector) {
   const container = document.querySelector(selector);
-  container.innerHTML = "";
+  if (!results?.length) {
+    container.style.height = "0px";
+  } else {
+    container.style.height = "65vh";
+  }
+  // container.innerHTML = "";
 
   results.forEach((book) => {
     const link = document.createElement("a");
@@ -82,7 +87,7 @@ export function renderBookDetails(bookData, selector) {
 
   container.innerHTML = `
     <img src="${bookData.imageLinks?.small || bookData.imageLinks?.thumbnail}" 
-      alt="book cover for ${bookData.title}"/>
+      alt="book cover for ${bookData.title}">
     <div>
       <h1 class="book-title">${bookData.title}</h1>
       <p class="book-subtitle">${bookData.subtitle || ""}</p>

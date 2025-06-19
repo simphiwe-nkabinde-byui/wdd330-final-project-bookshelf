@@ -6,8 +6,8 @@
     <title>My Bookshelf</title>
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/main.css" />
-    <script src="scripts/main.js" defer type="module"></script>
-    <script src="scripts/bookshelf.js" defer type="module"></script>
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/bookshelf.js" type="module"></script>
   </head>
   <body>
     <header></header>
@@ -25,6 +25,11 @@
           </div>
         </form>
         <div id="search-results" class="search-results"></div>
+      </section>
+      <section class="quote-section">
+        <p><strong>Quote of the day</strong></p>
+        <i id="quote-body"></i>
+        <p id="quote-author"></p>
       </section>
       <section class="categories-section">
         <div class="category-shelf" id="reading-category"></div>

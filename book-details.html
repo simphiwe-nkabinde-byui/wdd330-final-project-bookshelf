@@ -6,8 +6,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/main.css" />
-    <script src="scripts/main.js" defer type="module"></script>
-    <script src="scripts/bookDetails.js" defer type="module"></script>
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/bookDetails.js" type="module"></script>
   </head>
   <body>
     <header></header>
@@ -27,7 +27,9 @@
             wishlist
             <input value="wishlist" type="radio" name="category" />
           </label>
-          <button type="button" class="remove-book-btn">remove</button>
+          <button id="remove-book" type="button" class="remove-book-btn">
+            remove
+          </button>
         </form>
         <article id="book-details-container"></article>
       </section>
