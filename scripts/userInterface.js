@@ -4,7 +4,7 @@ import {
   getLanguageName,
   loadTemplate,
   shortenWithEllipsis,
-} from "./utilities.mjs";
+} from "./utilities.js";
 
 export function renderCategoryShelf(categoryName, selector) {
   const books = getBooksByCategory(categoryName);
