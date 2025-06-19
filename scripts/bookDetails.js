@@ -1,6 +1,6 @@
-import { fetchBookById } from "./BookServices.mjs";
-import { getBookById, saveBook } from "./dataManagement.mjs";
-import { renderBookDetails } from "./UserInterface.mjs";
+import { fetchBookById } from "./bookServices.js";
+import { saveBook } from "./dataManagement.js";
+import { renderBookDetails } from "./userInterface.js";
 
 let url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);

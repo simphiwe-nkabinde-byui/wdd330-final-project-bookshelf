@@ -1,5 +1,5 @@
-import { fetchBookById } from "./BookServices.mjs";
-import { getBooksByCategory } from "./dataManagement.mjs";
+import { fetchBookById } from "./bookServices.js";
+import { getBooksByCategory } from "./dataManagement.js";
 import {
   getLanguageName,
   loadTemplate,

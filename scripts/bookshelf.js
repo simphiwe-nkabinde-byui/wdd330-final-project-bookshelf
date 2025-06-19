@@ -1,7 +1,7 @@
 // render book categories
 
-import { fetchBooksBySearchOptions } from "./BookServices.mjs";
-import { renderCategoryShelf, renderSearchResults } from "./UserInterface.mjs";
+import { fetchBooksBySearchOptions } from "./bookServices.js";
+import { renderCategoryShelf, renderSearchResults } from "./userInterface.js";
 
 const searchOptions = {};
 const searchForm = document.querySelector("#search-form");
