@@ -6,43 +6,32 @@
     <title>My Bookshelf</title>
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/main.css" />
+    <script src="scripts/main.js" defer type="module"></script>
+    <script src="scripts/bookshelf.js" defer type="module"></script>
   </head>
   <body>
-    <header>
-      <a href="index.html" class="header-brand">
-        <img src="images/logo-light.png" alt="Bookshelf logo" />
-        Bookshelf
-      </a>
-      <a class="profile-link" href="profile.html">
-        <img src="images/user.png" alt="" />
-      </a>
-    </header>
+    <header></header>
     <main class="main--bookshelf">
-      <section class="sect-search">
-        <p class="sect-title">Search Books</p>
-        <form action="">
-          <input type="text" placeholder="Title" />
-          <input type="text" placeholder="Author" />
-          <input type="text" placeholder="Category" />
-          <input type="text" placeholder="Publisher" />
-          <input type="text" placeholder="ISBN" />
+      <section class="search-section">
+        <form id="search-form" class="search-form">
+          <p class="sect-title">Search Books</p>
+          <div class="search-fields">
+            <input type="search" name="title" placeholder="Title" />
+            <input type="search" name="author" placeholder="Author" />
+            <input type="search" name="category" placeholder="Category" />
+            <input type="search" name="publisher" placeholder="Publisher" />
+            <input type="search" name="isbn" placeholder="ISBN" />
+            <button type="button" class="clear-search-button">clear all</button>
+          </div>
         </form>
+        <div id="search-results" class="search-results"></div>
       </section>
-      <section class="sect-shelves">
-        <div class="shelf">
-          <h2 class="shelf-title">Continue Reading</h2>
-          <div class="shelf-body"></div>
-        </div>
-        <div class="shelf">
-          <h2 class="shelf-title">Wishlist</h2>
-          <div class="shelf-body"></div>
-        </div>
-        <div class="shelf">
-          <h2 class="shelf-title">Completed</h2>
-          <div class="shelf-body"></div>
-        </div>
+      <section class="categories-section">
+        <div class="category-shelf" id="reading-category"></div>
+        <div class="category-shelf" id="wishlist-category"></div>
+        <div class="category-shelf" id="completed-category"></div>
       </section>
     </main>
-    <footer>&copy; 2025 Bookshelf</footer>
+    <footer></footer>
   </body>
 </html>

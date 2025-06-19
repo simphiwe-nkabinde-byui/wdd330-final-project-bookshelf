@@ -103,7 +103,8 @@ footer {
     font-weight: 600;
 }
 
-.main--bookshelf {
+.main--bookshelf,
+.main--book {
     background: var(--light-grey);
 }
 
@@ -113,18 +114,21 @@ footer {
     font-size: 1.1rem;
 }
 
-.sect-search {
+.search-section {
     background: var(--white);
     padding: 1rem 5%;
     box-shadow: 0px 3px 12px 0px #21252914;
     margin-bottom: 1.5rem;
 
-    form {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: .5rem;
-        row-gap: .5rem;
-        justify-content: center;
+    .search-form {
+        .search-fields {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: .5rem;
+            row-gap: .5rem;
+            justify-content: center;
+        }
+
 
         input {
             width: 90px;
@@ -138,21 +142,187 @@ footer {
     }
 }
 
-.sect-shelves {
+.categories-section {
     padding: 1.5rem 5%;
     display: flex;
     flex-direction: column;
     row-gap: 1.5rem;
 }
 
-.shelf {
+.category-shelf {
     border-radius: 5px;
     padding: .5rem;
     background: var(--white);
     box-shadow: 0px 0px 13px 4px #00000017;
 
-    .shelf-title {
+    .category-title {
         font-size: 1rem;
         font-weight: 600;
+        text-transform: capitalize;
+        margin-bottom: 1rem;
     }
+
+    .category-body {
+        display: flex;
+        flex-wrap: nowrap;
+        column-gap: 1rem;
+        overflow-x: scroll;
+    }
+
+    .category-book {
+        min-width: 150px;
+        /* max-width: 150px; */
+        text-align: center;
+
+        img {
+            border-radius: 4px;
+            margin: 0 auto;
+        }
+
+        .book-title {
+            font-weight: 700;
+            font-size: .7rem;
+        }
+
+        .book-author {
+            font-size: .5rem;
+        }
+    }
+}
+
+.search-form {
+    margin-bottom: 2rem;
+}
+
+.clear-search-button {
+    width: 90px;
+    height: 25px;
+    font-size: .8rem;
+    text-transform: capitalize;
+}
+
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    row-gap: 1rem;
+    column-gap: 1rem;
+}
+
+.result-book-card {
+    text-decoration: none;
+    text-align: center;
+    color: var(--dark);
+
+    .book-cover {
+        margin: 0 auto;
+    }
+
+    .book-title {
+        font-size: .9rem;
+        font-weight: 700;
+    }
+
+    .book-subtitle {
+        font-size: .7rem;
+        color: #4e4e4e;
+    }
+
+    .book-author {
+        font-size: .8rem;
+    }
+
+    .book-publish-date {
+        font-size: .8rem;
+        color: #4e4e4e;
+    }
+}
+
+.book-details-section {
+    padding: 1.5rem 5%;
+
+    article {
+        background: var(--white);
+        border-radius: .8rem;
+        box-shadow: 0px 0px 13px 4px #0000000c;
+        padding: 2rem 1rem;
+        display: grid;
+
+        p {
+            font-size: .8rem;
+        }
+
+        img {
+            box-shadow: 0px 0px 13px 4px #00000017;
+            border-radius: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .book-title {
+            font-size: 1.2rem;
+        }
+
+        .book-subtitle {
+            font-size: .8rem;
+            margin-bottom: .6rem;
+            color: #5a5a5a;
+        }
+
+        .book-description {
+            font-size: .8rem;
+            margin-bottom: 1.5rem;
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+
+        .book-authors,
+        .book-publisher {
+            font-weight: 700;
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .book-details-section {
+        article {
+            grid-template-columns: 1fr 2fr;
+            column-gap: 1rem;
+        }
+    }
+}
+
+.category-form {
+    display: flex;
+    column-gap: 1rem;
+    margin-bottom: 1rem;
+
+    label,
+    .remove-book-btn {
+        border-radius: 50px;
+        border: 1px solid var(--purple);
+        color: var(--purple);
+        background: var(--white);
+        padding: .2rem .6rem;
+        font-size: .8rem;
+        display: flex;
+        align-items: center;
+        column-gap: .5rem;
+    }
+}
+
+.back-link {
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.pill {
+    border: 1px solid var(--blue);
+    border-radius: 50px;
+    color: var(--blue);
+    padding: .2rem .5rem;
+    font-size: .7rem;
+    display: inline-block;
+    margin: .2rem;
 }
